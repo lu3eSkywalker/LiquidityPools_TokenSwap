@@ -1,18 +1,18 @@
 import React from "react";
 import { useState } from "react";
 import { ethers } from "ethers";
+import { MetaMaskInpageProvider } from "@metamask/providers";
 import CreatingLiquidityPoolInfo from "./Walkthrough/CreatingLiquidityPoolInfo";
 import Image from "next/image";
 import asset1 from "../assets/asset1.png";
 import asset2 from "../assets/asset2.jpeg";
 import asset4 from "../assets/asset4.jpg";
-import cryptoPunks from "../assets/cryptoPunks.png";
 import pattern_randomized from "../assets/pattern-randomized.svg";
 import ethereum from "../assets/ethereum4.png";
 
 declare global {
   interface Window {
-    ethereum: any;
+    ethereum: MetaMaskInpageProvider;
   }
 }
 
@@ -69,7 +69,7 @@ const CreateLiquidityPool = () => {
         } else {
           setTokenCreationSuccessfull("Error creating Liquidity Pool");
         }
-      } catch (error: any) {
+      } catch (error) {
         console.error("Error Creating Pool", error);
         alert(
           "An error occurred while creating the liquidity pool. Check console for details."

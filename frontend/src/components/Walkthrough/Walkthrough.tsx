@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const Walkthrough = () => {
@@ -31,7 +32,7 @@ const Walkthrough = () => {
                 need to own them to create a liquidity pool of our own. We also
                 need the contract address of the Liquidity Pool Factory
                 contract, but we have hardcoded that address in the frontend.
-                So, for now, there's no need to add it manually.
+                So, for now, theres no need to add it manually.
               </p>
             </div>
             <hr />
@@ -149,45 +150,13 @@ const Walkthrough = () => {
             <div className="timeline-start mb-10 md:text-end">
               <time className="font-mono italic text-2xl">Step 5</time>
               <div className="text-2xl font-black">
-                <a href="/removeliquidity">Removing Liquidity</a>
+                <Link href="/removeliquidity">Removing Liquidity</Link>
               </div>
               <p className="text-xl">
-              For removing the liquidity, we would have to provide the LP tokens
-              that we got during adding the liquidity to the pool. After
-              providing the LP token, we would get our respective tokens, back
-              in our account.
-              </p>
-            </div>
-            <hr />
-          </li>
-
-          <li>
-            <hr />
-            <div className="timeline-middle">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                className="h-5 w-5"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </div>
-            <div className="timeline-end mb-10">
-              <time className="font-mono italic text-2xl">Step 6</time>
-              <div className="text-2xl font-black">
-                <a href="./addliquidity">Swapping Tokens</a>
-              </div>
-              <p className="text-xl">
-              You’ll need to specify three main values for a token swap: the
-              token you're swapping from (Token A), the token you wish to
-              receive (Token B), and the quantity of Token A you want to
-              exchange. Based on the pool’s current rates, you’ll receive a
-              calculated amount of Token B after the swap.
+                For removing the liquidity, we would have to provide the LP
+                tokens that we got during adding the liquidity to the pool.
+                After providing the LP token, we would get our respective
+                tokens, back in our account.
               </p>
             </div>
           </li>

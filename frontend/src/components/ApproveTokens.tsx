@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { ethers } from "ethers";
+import { MetaMaskInpageProvider } from "@metamask/providers";
 import ApproveTokensInfo from "./Walkthrough/ApproveTokensInfo";
 import Image from "next/image";
 import asset1 from "../assets/asset1.png";
@@ -11,7 +12,7 @@ import pattern_randomized from "../assets/pattern-randomized.svg";
 
 declare global {
   interface Window {
-    ethereum: any;
+    ethereum: MetaMaskInpageProvider;
   }
 }
 
@@ -55,7 +56,7 @@ const ApproveTokens = () => {
         if (response.status == 1) {
           setToken0Approved(true);
         }
-      } catch (error: any) {
+      } catch (error) {
         console.error("Error Creating Pool", error);
         alert(
           "An error occurred while creating the liquidity pool. Check console for details."
@@ -86,7 +87,7 @@ const ApproveTokens = () => {
         if (response.status == 1) {
           setToken1Approved(true);
         }
-      } catch (error: any) {
+      } catch (error) {
         console.error("Error Creating Pool", error);
         alert(
           "An error occurred while creating the liquidity pool. Check console for details."

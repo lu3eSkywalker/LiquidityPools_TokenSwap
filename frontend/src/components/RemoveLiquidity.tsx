@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { ethers } from "ethers";
 import RemovingLiquidityInfo from "./Walkthrough/RemovingLiquidityInfo";
+import { MetaMaskInpageProvider } from "@metamask/providers";
 import Image from "next/image";
 import asset1 from "../assets/asset1.png";
 import asset2 from "../assets/asset2.jpeg";
@@ -11,7 +12,7 @@ import pattern_randomized from "../assets/pattern-randomized.svg";
 
 declare global {
   interface Window {
-    ethereum: any;
+    ethereum: MetaMaskInpageProvider;
   }
 }
 
@@ -54,7 +55,7 @@ const RemoveLiquidity = () => {
         if (res.status == 1) {
           setLiquidityRemoved("Transaction Successful");
         }
-      } catch (error: any) {
+      } catch (error) {
         console.error("Error removing liquidity", error);
         alert(
           "An error occurred while removing the liquidity. Check console for details."

@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { ethers } from "ethers";
 import TokenSwapsInfo from "./Walkthrough/TokenSwapsInfo";
+import { MetaMaskInpageProvider } from "@metamask/providers";
 import Image from "next/image";
 import asset1 from "../assets/asset1.png";
 import asset2 from "../assets/asset2.jpeg";
@@ -11,7 +12,7 @@ import pattern_randomized from "../assets/pattern-randomized.svg";
 
 declare global {
   interface Window {
-    ethereum: any;
+    ethereum: MetaMaskInpageProvider;
   }
 }
 
@@ -63,7 +64,7 @@ const TokenSwaps = () => {
         } else {
           setTokenSwapSuccessfull("Error Swapping Tokens");
         }
-      } catch (error: any) {
+      } catch (error) {
         console.error("Error Swapping Tokens", error);
         alert(
           "An error occurred while swapping Tokens. Check console for details."

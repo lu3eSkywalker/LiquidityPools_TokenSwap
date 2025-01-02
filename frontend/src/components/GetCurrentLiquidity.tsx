@@ -1,10 +1,11 @@
 import React from "react";
 import { useState } from "react";
 import { ethers } from "ethers";
+import { MetaMaskInpageProvider } from "@metamask/providers";
 
 declare global {
   interface Window {
-    ethereum: any;
+    ethereum: MetaMaskInpageProvider;
   }
 }
 
@@ -38,7 +39,7 @@ const GetCurrentLiquidity = () => {
       setTokenAReserve(parseInt(getLiquidity[0]));
       setTokenBReserve(parseInt(getLiquidity[1]));
       setRemainingTotalLiquidity(parseInt(getLiquidity[2]));
-    } catch (error: any) {
+    } catch (error) {
       console.error("Error Adding liquidity", error);
     }
   }

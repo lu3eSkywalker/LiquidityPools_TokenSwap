@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { ethers } from "ethers";
+import { MetaMaskInpageProvider } from "@metamask/providers";
 import AddingLiquidityInfo from "./Walkthrough/AddingLiquidityInfo";
 import Image from "next/image";
 import asset1 from "../assets/asset1.png";
@@ -11,7 +12,7 @@ import ethereum from "../assets/ethereum4.png";
 
 declare global {
   interface Window {
-    ethereum: any;
+    ethereum: MetaMaskInpageProvider;
   }
 }
 
@@ -57,7 +58,7 @@ const AddLiquidity = () => {
         if (res.status == 1) {
           setLiquidityAdded("Transaction Successful");
         }
-      } catch (error: any) {
+      } catch (error) {
         console.error("Error Adding liquidity", error);
         alert(
           "An error occurred while adding liquidity. Check console for details."

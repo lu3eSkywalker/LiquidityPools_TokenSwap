@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ethers } from "ethers";
+import { MetaMaskInpageProvider } from "@metamask/providers";
 import LiquidityPoolByUserInfo from "./Walkthrough/LiquidityPoolByUserInfo";
 import TokenInfo from "./TokenInfo";
 import Image from "next/image";
@@ -11,7 +12,7 @@ import ethereum3 from "../assets/ethereum3.png"
 
 declare global {
   interface Window {
-    ethereum: any;
+    ethereum: MetaMaskInpageProvider;
   }
 }
 
@@ -47,7 +48,7 @@ const GetLiquidityPoolCreatedByUser = () => {
       console.log(tx.toString());
       setLoadingBar(false);
       setAddress(tx);
-    } catch (err: any) {
+    } catch (err) {
       console.error("Error fetching liquidity pools:", err);
       setError("Failed to fetch liquidity pools. Please try again.");
     }
