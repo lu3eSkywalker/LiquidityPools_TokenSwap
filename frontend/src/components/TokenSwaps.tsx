@@ -17,7 +17,7 @@ declare global {
 }
 
 const TokenSwaps = () => {
-  const [tokenFromAmount, setTokenFromAccount] = useState<number>(0);
+  const [tokenFromAmount, setTokenFromAccount] = useState<string>("");
 
   const [fromAddress, setFromAddress] = useState<string>("");
   const [toAddress, setToAddress] = useState<string>("");
@@ -45,8 +45,10 @@ const TokenSwaps = () => {
           signer
         );
 
+        const ethToWeiAmount = ethers.parseUnits(tokenFromAmount, 18);
+
         const sendTokens = await contract.swap(
-          tokenFromAmount,
+          ethToWeiAmount,
           fromAddress,
           toAddress
         );
@@ -138,7 +140,7 @@ const TokenSwaps = () => {
                     type="number"
                     placeholder="Quantity of Token To Send"
                     onChange={(e) =>
-                      setTokenFromAccount(parseInt(e.target.value))
+                      setTokenFromAccount(e.target.value)
                     }
                   />
                 </label>
